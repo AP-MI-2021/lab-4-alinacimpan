@@ -1,5 +1,6 @@
 from typing import List
 
+
 def show_menu():
     print('1. Citire lista')
     print('2. Afișarea părții întregi a tuturor numerelor din listă')
@@ -63,15 +64,17 @@ def get_parte_intreaga_divizor(lst):
     """
     result =[]
     for elem in lst:
-        p_intreaga=int(elem)
-        p_fractionara=elem- int(elem)
+        p_intreaga = int(elem)
+        p_fractionara = elem - int(elem)
         if p_fractionara % p_intreaga == 0:
             result.append(elem)
     return result
 
 
 def test_get_parte_intreaga_divizor():
-    assert get_parte_intreaga_divizor ([1.5, -3.3, 9.8, 3.2]) == [1.5, -3.3]
+
+    assert get_parte_intreaga_divizor([2.3, 6.3, 3.9, 3.2]) == [3.9]
+
 
 
 def get_inlocuire_string(lst):
@@ -81,12 +84,16 @@ def get_inlocuire_string(lst):
     :return:
     """
     result = []
-    
+    #for elem in lst:
+     #   cuvant = num2words(elem, lang="ro")
+        #result.append(cuvant)
+    return result
 
 
-test_get_inlocuire_string():
-    assert get_inlocuire_string ([1.5, -3.3, 8, 9.8, 3.2, 14.52]) == [unuvirgulacinci, minustreivirgulatrei, opt, nouavirgulaopt, treivirguladoi, unupatruvirgulacincidoi]
-    assert get_inlocuire_string ([2.3, 4.1, 1.4]) == [doivirgulatrei, patruvirgulaunu, unuvirgulapatru]
+
+#def test_get_inlocuire_string():
+    #assert get_inlocuire_string ([1.5, -3.3, 8, 9.8, 3.2, 14.52]) == [unuvirgulacinci, minustreivirgulatrei, opt, nouavirgulaopt, treivirguladoi, unupatruvirgulacincidoi]
+    #assert get_inlocuire_string ([2.3, 4.1, 1.4]) == [doivirgulatrei, patruvirgulaunu, unuvirgulapatru]
 
 
 
@@ -105,6 +112,8 @@ def main():
             print(f':Numerele din {lst} care sunt din intervalul ({a},{b}) sunt: {get_interval(lst,a,b)}')
         elif option == '4':
             print(f'Numerele pentru care parte întreagă este divizor al părții fracționare din lista: {lst} este: {get_parte_intreaga_divizor(lst)}')
+        elif option == '5':
+            print(f'Numerele care sunt înlocuite cu un string format din cuvinte care le descriu caracter cu caracter din lista: {lst} este: {get_inlocuire_string(lst)}')
         elif option == 'x':
             break
         else:
@@ -113,5 +122,6 @@ def main():
 if __name__ == '__main__':
     test_get_parte_intreaga()
     test_get_interval()
-    test_get_parte_intreaga_divizor
+   # test_get_parte_intreaga_divizor()
+   # test_get_inlocuire_string()
     main()
